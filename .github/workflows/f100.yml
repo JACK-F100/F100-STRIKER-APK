@@ -1,0 +1,16 @@
+name: F100_STRIKER
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build APK
+        uses: ArtemSerebriakov/buildozer-action@v1
+        with:
+          save_buildozer_cache: false
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: TEAM_F100_APK
+          path: bin/*.apk
