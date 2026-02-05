@@ -1,21 +1,16 @@
-name: Build F100 APK
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+name: Build
+on: [push]
 jobs:
-  build:
+  android:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build with Buildozer
+      - name: Build APK
         uses: ArtemSerebriakov/buildozer-action@v1
         with:
-          save_buildozer_cache: true
-      - name: Upload APK
+          save_buildozer_cache: false
+      - name: Upload
         uses: actions/upload-artifact@v2
         with:
-          name: F100_STRIKER_APK
+          name: F100_STRIKER
           path: bin/*.apk
