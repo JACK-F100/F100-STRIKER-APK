@@ -4,13 +4,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Build APK
-        uses: ArtemSerebriakov/buildozer-action@v1
+      - uses: actions/checkout@v3
+      - name: Build APK with Buildozer
+        uses: digon88/buildozer-action@v1.2
         with:
           save_buildozer_cache: false
-      - name: Upload
-        uses: actions/upload-artifact@v2
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
         with:
           name: TEAM_F100_APK
           path: bin/*.apk
